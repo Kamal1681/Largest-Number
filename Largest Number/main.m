@@ -34,7 +34,7 @@ NSNumber* largestNumber(NSArray *numbers){
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSArray *numbers = [[NSArray alloc]initWithObjects: @7.8f, @700, @40.6f, @1, @700, @940, @-22, @700, nil];
+        NSArray *numbers = [[NSArray alloc]initWithObjects: @7.8f, @700, @40.6f, @1, @700, @94, @-22, @700, nil];
         NSLog(@"largest number is %@", largestNumber(numbers));
         
         NSArray *numbers2 = [[NSArray alloc]initWithObjects: @8, @9 ,@45, @22, @22, @15, @-10, @390, nil];
