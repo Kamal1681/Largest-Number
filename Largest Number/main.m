@@ -7,38 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-
-NSNumber* largestNumber(NSArray *numbers){
-    
-    NSNumber *largestValue;
-    
-    for (NSNumber *value1 in numbers) {
-        
-        int total = 0; //a variable holding the total number of times value1 was greater than value2
-        
-        for (NSNumber *value2 in numbers){
-            
-            if(![value1 compare:value2]) {total ++;} //incrementing total value if value1 equals value2
-            
-            total = total + [value1 compare:value2];//incremented each time value1 is greater than value2
-        
-            if ( total == ([numbers count])){
-                largestValue = value1;// if value1 was greater than all other elements of the array i.e. all iterations of value2
-            }
-        }
-    }
-    return largestValue;
-}
-
-
+#import "ArrayUtility.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSArray *numbers = [[NSArray alloc]initWithObjects: @7.8f, @700, @40.6f, @1, @700, @94, @-22, @700, nil];
-        NSLog(@"largest number is %@", largestNumber(numbers));
+        NSArray *firstArray = [[NSArray alloc]initWithObjects: @7.8f, @22, @800.5, @1, @700, @36, @-2, @900, nil];
+        ArrayUtility *firstArrayUtility = [[ArrayUtility alloc]init];
+
+        NSLog(@"largest number is %@", [firstArrayUtility largestNumber:firstArray]);
+        NSLog(@"smallest number is %@", [firstArrayUtility smallestNumber:firstArray]);
+        NSLog(@"median number is %@", [firstArrayUtility medianNumber:firstArray]);
         
-        NSArray *numbers2 = [[NSArray alloc]initWithObjects: @8, @9 ,@45, @22, @22, @15, @-10, @390, nil];
-        NSLog(@"largest number for second array is %@", largestNumber(numbers2));
+        
+        
+        NSArray *secondArray = [[NSArray alloc]initWithObjects: @8, @2.6f, @12 ,@45, @6, @22, @10, @-10, @390, nil];
+        ArrayUtility *secondArrayUtility = [[ArrayUtility alloc]init];
+        NSLog(@"largest number for second array is %@", [secondArrayUtility largestNumber:secondArray]);
+        NSLog(@"smallest number for second array is %@", [secondArrayUtility smallestNumber:secondArray]);
+        NSLog(@"median number for second array is %@", [secondArrayUtility medianNumber:secondArray]);
     }
     return 0;
 }
